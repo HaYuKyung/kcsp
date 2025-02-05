@@ -131,7 +131,7 @@ const LoginForm = () => {
             value={id}
             onChange={(e) => setId(e.target.value)}
             className="form-control"
-            //disabled={isLocked} 
+            disabled={isLocked} 
           />
           {errors.id && <div className="error">{errors.id}</div>}
         </div>
@@ -142,7 +142,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="form-control"
-            //disabled={isLocked}
+            disabled={isLocked}
           />
           {errors.password && <div className="error">{errors.password}</div>}
         </div>
@@ -157,7 +157,7 @@ const LoginForm = () => {
             type="submit"
             className="btn btn-primary"
             onClick={handleLogin}
-            //disabled={isLocked} 
+            disabled={isLocked} 
           >
             로그인
           </button>
