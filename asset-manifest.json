@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kcsp/static/css/main.73f8caf4.css",
-    "main.js": "/kcsp/static/js/main.87d6e09d.js",
+    "main.js": "/kcsp/static/js/main.5811cdf6.js",
     "static/media/kmlaonline-w.png": "/kcsp/static/media/kmlaonline-w.2533bd0a17087fd29af8.png",
     "index.html": "/kcsp/index.html",
     "main.73f8caf4.css.map": "/kcsp/static/css/main.73f8caf4.css.map",
-    "main.87d6e09d.js.map": "/kcsp/static/js/main.87d6e09d.js.map"
+    "main.5811cdf6.js.map": "/kcsp/static/js/main.5811cdf6.js.map"
   },
   "entrypoints": [
     "static/css/main.73f8caf4.css",
-    "static/js/main.87d6e09d.js"
+    "static/js/main.5811cdf6.js"
   ]
 }
