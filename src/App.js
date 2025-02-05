@@ -1,8 +1,8 @@
 import './App.css';
-import LoginForm from './page/Login/Login';
-import FindId from './page/FindAccount/FindId';
-import FindPassword from './page/FindAccount/FindPassword';
-import Register from './page/Register/Register';
+import LoginForm from './page/login/login'
+import FindId from './page/login/find-id';
+import FindPassword from './page/login/find-passward';
+import Register from './page/login/signup';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<LoginForm />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/find-id" element={<FindId />} />
             <Route path="/find-password" element={<FindPassword />} />
             <Route path="register" element={<Register/>}/>

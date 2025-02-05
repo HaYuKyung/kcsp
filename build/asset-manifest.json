@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0bd618b8.css",
+    "main.js": "/static/js/main.e4237739.js",
+    "static/media/kmlaonline-w.png": "/static/media/kmlaonline-w.2533bd0a17087fd29af8.png",
+    "index.html": "/index.html",
+    "main.0bd618b8.css.map": "/static/css/main.0bd618b8.css.map",
+    "main.e4237739.js.map": "/static/js/main.e4237739.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bd618b8.css",
+    "static/js/main.e4237739.js"
+  ]
+}
