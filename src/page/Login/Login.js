@@ -19,15 +19,13 @@ const LoginForm = () => {
   });
   const [remainingTime, setRemainingTime] = useState(() => {
     const lockoutEnd = localStorage.getItem("lockoutEnd");
-    if (lockoutEnd) {
-      const parsedLockoutEnd = parseInt(lockoutEnd, 10);
-      if (!isNaN(parsedLockoutEnd)) {
-        return parsedLockoutEnd > Date.now()
-          ? Math.ceil((parsedLockoutEnd - Date.now()) / 1000)
-          : 0;
-      }
+    if(!lockoutEnd) return 0;
+    const parsedLockoutEnd = parseInt(lockoutEnd, 10);
+    if (!isNaN(parsedLockoutEnd)) {
+      return parsedLockoutEnd > Date.now()
+        ? Math.ceil((parsedLockoutEnd - Date.now()) / 1000)
+        : 0;
     }
-    return 0;
   });
 
   const users = [
@@ -65,24 +63,8 @@ const LoginForm = () => {
   };
 
   const handleLogin = () => {
-    if (isLocked) {
-      setErrorMessage("잠시 후에 다시 시도하세요.");
-      return;
-    }
-
-    if (!validateInputs()) {
-      return;
-    }
-
-    if (rememberMe) {
-      const confirmRemember = window.confirm(
-        "개인용 장치에서만 사용하십시오. 계속하시겠습니까?"
-      );
-      if (!confirmRemember) {
-        setRememberMe(false);
-        return;
-      }
-    }
+    
+    if (!validateInputs()) return;
 
     const user = users.find((user) => user.id === id && user.password === password);
     if (user) {
@@ -98,19 +80,14 @@ const LoginForm = () => {
 
       if (attempts >= 5) {
         const lockoutEnd = Date.now() + 60000;
-        setIsLocked(true);
         localStorage.setItem("lockoutEnd", lockoutEnd);
         setErrorMessage("로그인 시도가 5번 실패했습니다. 1분 후에 다시 시도하세요.");
+        window.location.reload();
       } else {
         setErrorMessage("아이디 또는 비밀번호가 잘못되었습니다.");
       }
     }
   };
-
-  const currentDate = new Date();
-  const formattedDate = `${currentDate.getFullYear()}년 ${
-    currentDate.getMonth() + 1
-  }월 ${currentDate.getDate()}일`;
 
   return (
     <div className="login-container">
@@ -147,7 +124,7 @@ const LoginForm = () => {
           {errors.password && <div className="error">{errors.password}</div>}
         </div>
         {errorMessage && <div className="error">{errorMessage}</div>}
-        {isLocked && remainingTime > 0 && !isNaN(remainingTime) && (
+        {isLocked && remainingTime > 0 && Number.isFinite(remainingTime) && (
           <div className="lockout-message">
             {`잠금 해제까지 남은 시간: ${remainingTime}초`}
           </div>
